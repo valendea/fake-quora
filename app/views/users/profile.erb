@@ -36,7 +36,7 @@
 	<ol>
 	<% @user.questions.each do |x| %>
 		<li>
-			On <%= x.created_at %>, <%= current_user.first_name %> asked:
+			On <%= x.created_at %>, <%= @user.first_name %> asked:
 			<%= x.question_description %>
 			<% if current_user.id == @user.id %>
 				<a href="/questions/<%= x.id %>/edit">[Edit]</a>
@@ -58,7 +58,7 @@
 	<ol>
 	<% @user.answers.each do |y| %>
 		<li>
-			On <%= y.created_at %>, <%= current_user.first_name %> answered to <%= y.question.user.first_name %>:
+			On <%= y.created_at %>, <%= @user.first_name %> answered to <%= y.question.user.first_name %>:
 			<%= y.content %>
 			<% if current_user.id == @user.id %>
 				<a href="/answers/<%= y.id %>/edit">[Edit]</a>

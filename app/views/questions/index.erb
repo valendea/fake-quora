@@ -22,18 +22,17 @@
 		</div>
   </div>
 <br>
-Top Questions for You
-
+<h5>Top Questions for You</h5>
+<br>
 <% @question_all.each do |x| %>
 	<p>A question on <%= x.created_at %> by <%= x.user.first_name + ' ' + x.user.last_name %>:<br>
 		<%= x.question_description %></p>
 		<div>
 			<form method="post" action="/question/<%= x.id %>/answers/new">
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="answer[content]"></textarea>
-			<input type="submit" value="Answer">
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="answer[content]" placeholder="Write an answer"></textarea>
+			<input type="submit" value="Answer"> <a href="/question/<%= x.id %>">Show all answer</a>
 			</form>
 		</div>
-		<a href="/question/<%= x.id %>">Show all answer</a>
 		<br>
 <% end %>
 
